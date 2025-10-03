@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Weekly Timetable</title>
+  <style>
+    /* Basic reset */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      padding: 20px;
+      background: #fff; /* intentionally no colours for cells */
+      color: #111;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 16px;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    /* table layout */
+    table.timetable {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed; /* keep columns even-ish */
+      font-size: 13px;
+    }
+
+    table.timetable th,
+    table.timetable td {
+      border: 1px solid #222;
+      padding: 6px 8px;
+      vertical-align: middle;
+      text-align: center;
+      word-wrap: break-word;
+      min-height: 44px;
+    }
+
+    table.timetable th.left,
+    table.timetable td.left {
+      text-align: left;
+      padding-left: 12px;
+      width: 160px; /* day column */
+      font-weight: 600;
+    }
+
+    /* small meta row for times */
+    .time-row th {
+      font-weight: 600;
+      font-size: 12px;
+    }
+
+    /* smaller text inside cells to stack code + room + location */
+    .cell-strong {
+      display: block;
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .cell-sub {
+      display: block;
+      font-size: 12px;
+      line-height: 1.1;
+    }
+
+    /* lunch row styling (no colours still) */
+    .lunch {
+      font-weight: 700;
+      text-align: center;
+    }
+
+    /* Responsive: allow horizontal scroll if narrow */
+    .scroll-wrap {
+      overflow-x: auto;
+    }
+
+    @media (max-width: 800px) {
+      table.timetable th.left,
+      table.timetable td.left { width: 120px; }
+      .cell-strong { font-size: 12px; }
+      table.timetable { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Weekly Timetable (Mon — Fri)</h1>
+
+    <div class="scroll-wrap">
+      <table class="timetable" aria-label="Weekly timetable">
+        <!-- header: top-left corner -->
+        <thead>
+          <tr>
+            <th class="left">Day / Period</th>
+            <th class="time-row">I<br><small>08:50–09:40</small></th>
+            <th class="time-row">II<br><small>09:40–10:30</small></th>
+            <th class="time-row">III<br><small>10:40–11:30</small></th>
+            <th class="time-row">IV<br><small>11:30–12:20</small></th>
+            <th class="time-row">V<br><small>12:20–01:10</small></th>
+            <th class="time-row">VI<br><small>01:10–02:00</small></th>
+            <th class="time-row">VII<br><small>02:00–02:50</small></th>
+            <th class="time-row">VIII<br><small>02:50–03:40</small></th>
+            <th class="time-row">IX<br><small>03:40–04:30</small></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <!-- Monday -->
+          <tr>
+            <td class="left">Monday</td>
+            <td>
+              <span class="cell-strong">25AS102</span>
+              <span class="cell-sub">(VSV) RJ-203</span>
+            </td>
+            <td>
+              <span class="cell-strong">25EC101</span>
+              <span class="cell-sub">(KC) RJ-203</span>
+            </td>
+            <td>
+              <span class="cell-strong">25VA151</span>
+              <span class="cell-sub">(DDH) RJ-203</span>
+            </td>
+            <td>
+              <span class="cell-strong">25AS102</span>
+              <span class="cell-sub">(VSV) RJ-203</span>
+            </td>
+            <td>
+              <span class="cell-strong">25HU101</span>
+              <span class="cell-sub">(RSA) RJ-203</span>
+            </td>
+            <td><!-- small empty slot -->—</td>
+            <td>
+              <span class="cell-strong">25ME151</span>
+              <span class="cell-sub">(MNS, DP) Vishwakarma Block Ground Floor</span>
+            </td>
+            <td>
+              <span class="cell-strong">25ME-101 G1 (T)</span>
+              <span class="cell-sub">(MNS) TR-06</span>
+            </td>
+            <td>
+              <span class="cell-strong">25EC101 G2(T)</span>
+              <span class="cell-sub">(KC) TR-07</span>
+            </td>
+          </tr>
+
+          <!-- Tuesday -->
+          <tr>
+            <td class="left">Tuesday</td>
+            <td>
+              <span class="cell-strong">25HU151</span>
+              <span class="cell-sub">(RSA,BCH) KC Block V Floor (KC-510)</span>
+            </td>
+            <td>
+              <span class="cell-strong">25EC101</span>
+              <span class="cell-sub">(KC) RJ-202</span>
+            </td>
+            <td>
+              <span class="cell-strong">25ME101</span>
+              <span class="cell-sub">(MNS) RJ-202</span>
+            </td>
+            <td>
+              <span class="cell-strong">25EC101</span>
+              <span class="cell-sub">(KC) RJ-202</span>
+            </td>
+            <td>
+              <span class="cell-strong">25HU101</span>
+              <span class="cell-sub">(RSA) RJ-202</span>
+            </td>
+            <td><!-- lunch / gap -->—</td>
+            <td>
+              <span class="cell-strong">25AS102</span>
+              <span class="cell-sub">(VSV) RJ-203</span>
+            </td>
+            <td>
+              <span class="cell-strong">25HU102</span>
+              <span class="cell-sub">(NS) RJ-203</span>
+            </td>
+            <td>
+              <span class="cell-strong">Mentor–Mentee</span>
+              <span class="cell-sub">(MNS, KC) RJ-203</span>
+            </td>
+          </tr>
+
+          <!-- Wednesday -->
+          <tr>
+            <td class="left">Wednesday</td>
+            <td>
+              <span class="cell-strong">25EC101</span>
+              <span class="cell-sub">(KC) RJ-204</span>
+            </td>
+            <td>
+              <span class="cell-strong">25AS102</span>
+              <span class="cell-sub">(VSV) RJ-204</span>
+            </td>
+            <td>
+              <span class="cell-strong">25ME101</span>
+              <span class="cell-sub">(MNS) RJ-204</span>
+            </td>
+            <td colspan="2">
+              <span class="cell-strong">25CS151</span>
+              <span class="cell-sub">(AKS) Computer Lab-28, Aryabhatta Block Ground Floor</span>
+            </td>
+            <td class="lunch" colspan="1">LUNCH</td>
+            <td>
+              <span class="cell-strong">25AS102 G1 (T)</span>
+              <span class="cell-sub">(VSV) TR-06</span>
+            </td>
+            <td>
+              <span class="cell-strong">25ME-101 G2 (D)</span>
+              <span class="cell-sub">(MNS) TR-07</span>
+            </td>
+            <td>
+              <span class="cell-strong">25AS102 G1 (T)</span>
+              <span class="cell-sub">(VSV) TR-06</span>
+            </td>
+          </tr>
+
+          <!-- Thursday -->
+          <tr>
+            <td class="left">Thursday</td>
+            <td>
+              <span class="cell-strong">25HU102</span>
+              <span class="cell-sub">(NS) RJ-204</span>
+            </td>
+            <td>
+              <span class="cell-strong">25HU101</span>
+              <span class="cell-sub">(RSA) RJ-204</span>
+            </td>
+            <td>
+              <span class="cell-strong">25AS102</span>
+              <span class="cell-sub">(VSV) RJ-204</span>
+            </td>
+            <td>
+              <span class="cell-strong">25CS101</span>
+              <span class="cell-sub">(AKS) RJ-204</span>
+            </td>
+            <td>
+              <span class="cell-strong">25CS101</span>
+              <span class="cell-sub">(AKS) RJ-204</span>
+            </td>
+            <td class="lunch" colspan="1">LUNCH</td>
+            <td>
+              <span class="cell-strong">25EC151</span>
+              <span class="cell-sub">(KC,NSH) Bhabha Block I Floor (BH-115)</span>
+            </td>
+            <td>
+              <span class="cell-strong">25ME101</span>
+              <span class="cell-sub">(MNS) RJ-203</span>
+            </td>
+            <td>—</td>
+          </tr>
+
+          <!-- Friday -->
+          <tr>
+            <td class="left">Friday</td>
+            <td>
+              <span class="cell-strong">25ME101</span>
+              <span class="cell-sub">(MNS) RJ-201</span>
+            </td>
+            <td>
+              <span class="cell-strong">25AS102</span>
+              <span class="cell-sub">(VSV) RJ-201</span>
+            </td>
+            <td>
+              <span class="cell-strong">25VA151</span>
+              <span class="cell-sub">(DDH) Computer Lab-15, KC Block V Floor (KC-509)</span>
+            </td>
+            <td>
+              <span class="cell-strong">25EC101 G1(T)</span>
+              <span class="cell-sub">(KC) TR-02</span>
+            </td>
+            <td>
+              <span class="cell-strong">25AS102 G2 (T)</span>
+              <span class="cell-sub">(VSV) TR-03</span>
+            </td>
+            <td class="lunch" colspan="1">LUNCH</td>
+            <td>
+              <span class="cell-strong">25EC101</span>
+              <span class="cell-sub">(KC) RJ-203</span>
+            </td>
+            <td>
+              <span class="cell-strong">25CS101</span>
+              <span class="cell-sub">(AKS) RJ-203</span>
+            </td>
+            <td>
+              <span class="cell-strong">25CS101</span>
+              <span class="cell-sub">(AKS) RJ-203</span>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
