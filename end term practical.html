@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vowel or Consonant Checker</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .container {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        text-align: center;
+        width: 300px;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    input {
+        width: 80%;
+        padding: 10px;
+        font-size: 16px;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    #result {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Vowel or Consonant Checker</h2>
+
+    <input type="text" id="letter" maxlength="1" placeholder="Enter a letter">
+
+    <br>
+
+    <button onclick="checkLetter()">Check</button>
+
+    <p id="result"></p>
+</div>
+
+<script>
+function checkLetter() {
+    let letter = document.getElementById("letter").value.trim();
+
+    if (letter.length !== 1 || !/[a-zA-Z]/.test(letter)) {
+        document.getElementById("result").innerHTML =
+            "Please enter a valid single alphabet.";
+        return;
+    }
+
+    letter = letter.toLowerCase();
+
+    if (['a', 'e', 'i', 'o', 'u'].includes(letter)) {
+        document.getElementById("result").innerHTML =
+            letter.toUpperCase() + " is a Vowel.";
+    } else {
+        document.getElementById("result").innerHTML =
+            letter.toUpperCase() + " is a Consonant.";
+    }
+}
+</script>
+
+</body>
+</html>
